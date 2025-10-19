@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  # Base de datos MongoDB
+  mongodb:
+    image: mongo:5.0
+    container_name: lookmaxing-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-password123}
+      MONGO_INITDB_DATABASE: lookmaxing
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - lookmaxing-network
+    # No exponer puerto en producción
+    # ports:
+    #   - "27017:27017"
+
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: lookmaxing-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      MONGODB_URI: mongodb://${MONGO_USERNAME:-admin}:${MONGO_PASSWORD:-password123}@mongodb:27017/lookmaxing?authSource=admin
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
+      FIREBASE_CLIENT_EMAIL: ${FIREBASE_CLIENT_EMAIL}
+      FIREBASE_PRIVATE_KEY: ${FIREBASE_PRIVATE_KEY}
+      PAYPAL_CLIENT_ID_LIVE: ${PAYPAL_CLIENT_ID_LIVE}
+      PAYPAL_CLIENT_SECRET_LIVE: ${PAYPAL_CLIENT_SECRET_LIVE}
+      NEQUI_CLIENT_ID_LIVE: ${NEQUI_CLIENT_ID_LIVE}
+      NEQUI_CLIENT_SECRET_LIVE: ${NEQUI_CLIENT_SECRET_LIVE}
+      JWT_SECRET: ${JWT_SECRET}
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      LOG_LEVEL: info
+    depends_on:
+      - mongodb
+    networks:
+      - lookmaxing-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # No exponer puerto directamente en producción
+    # ports:
+    #   - "3001:3001"
+
+  # Redis (opcional para caché de sesiones)
+  redis:
+    image: redis:7-alpine
+    container_name: lookmaxing-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - lookmaxing-network
+    command: redis-server --appendonly yes
+
+  # Nginx (reverse proxy y SSL)
+  nginx:
+    image: nginx:alpine
+    container_name: lookmaxing-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl:ro
+      - ./frontend/build/web:/var/www/html:ro
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - backend
+    networks:
+      - lookmaxing-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend (construido estáticamente)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: lookmaxing-frontend
+    restart: unless-stopped
+    networks:
+      - lookmaxing-network
+    # Este servicio solo construye y copia archivos estáticos
+    command: echo "Frontend built and served by Nginx"
+
+volumes:
+  mongodb_data:
+  redis_data:
+  flutter_cache:
+
+networks:
+  lookmaxing-network:
+    driver: bridge

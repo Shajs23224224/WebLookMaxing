@@ -1,0 +1,134 @@
+config:
+  target: 'http://localhost:3001'
+  http:
+    # Configuración de timeouts y reintentos
+    timeout: 30
+    pool: 50 # Número de conexiones concurrentes
+
+  phases:
+    # Prueba de estrés: alta concurrencia por corto tiempo
+    - duration: 60
+      arrivalRate: 100
+      maxVusers: 200
+      name: "Stress test - High concurrency"
+
+    # Prueba de resistencia: carga moderada por tiempo extendido
+    - duration: 600
+      arrivalRate: 25
+      name: "Endurance test - Sustained load"
+
+    # Prueba de picos: simular tráfico de ventas
+    - duration: 30
+      arrivalRate: 50
+      name: "Spike test - Sales peak"
+
+  defaults:
+    headers:
+      Content-Type: 'application/json'
+      User-Agent: 'Artillery Load Test'
+
+  # Configuración de reportes
+  plugins:
+    ensure:
+      - maxErrorRate: 1 # Máximo 1% de errores
+      - max: 1000 # Tiempo máximo de respuesta en ms
+      - mean: 250 # Tiempo promedio máximo en ms
+
+scenarios:
+  # Flujo crítico: Registro y compra
+  - name: "Critical path - Registration to purchase"
+    weight: 40
+    flow:
+      # Registro rápido
+      - post:
+          url: "/api/auth/register"
+          json:
+            email: "loadtest{{ $randomInt(10000, 99999) }}@example.com"
+            password: "testpass123"
+            firstName: "Load"
+            lastName: "Test{{ $randomInt(1, 1000) }}"
+            phone: "+57{{ $randomInt(300, 399) }}{{ $randomInt(1000000, 9999999) }}"
+          expect:
+            - statusCode: [201]
+
+      # Login inmediato
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "loadtest{{ $randomInt(10000, 99999) }}@example.com"
+            password: "testpass123"
+          capture:
+            json: "$.data.token"
+            as: "token"
+          expect:
+            - statusCode: [200]
+
+      # Navegar productos
+      - get:
+          url: "/api/products"
+          headers:
+            Authorization: "Bearer {{ token }}"
+          expect:
+            - statusCode: [200]
+            - hasProperty: 'data'
+
+      # Crear orden
+      - post:
+          url: "/api/orders"
+          headers:
+            Authorization: "Bearer {{ token }}"
+          json:
+            products:
+              - productId: "507f1f77bcf86cd799439011"
+                quantity: "{{ $randomInt(1, 3) }}"
+            shippingAddress:
+              street: "Calle {{ $randomInt(1, 100) }} #{{ $randomInt(10, 99) }}-{{ $randomInt(10, 99) }}"
+              city: "{{ $randomString([\"Bogotá\", \"Medellín\", \"Cali\", \"Barranquilla\"]) }}"
+              state: "Departamento"
+              country: "Colombia"
+              zipCode: "{{ $randomInt(10000, 99999) }}"
+            paymentMethod: "{{ $randomString([\"paypal\", \"nequi\"]) }}"
+          expect:
+            - statusCode: [201]
+
+  # Flujo de autenticación pesada
+  - name: "Authentication stress"
+    weight: 25
+    flow:
+      # Múltiples intentos de login
+      - loop:
+          - post:
+              url: "/api/auth/login"
+              json:
+                email: "stressuser{{ $randomInt(1, 1000) }}@example.com"
+                password: "password123"
+            - think: 1 # Pausa de 1 segundo entre requests
+        count: 5
+
+  # Flujo de WhatsApp intensivo
+  - name: "WhatsApp intensive"
+    weight: 20
+    flow:
+      # Enviar múltiples mensajes WhatsApp
+      - loop:
+          - post:
+              url: "/api/whatsapp/send"
+              json:
+                to: "+57{{ $randomInt(300, 399) }}{{ $randomInt(1000000, 9999999) }}"
+                message: "Mensaje de prueba de carga número {{ $loopCount }}"
+                userId: "507f1f77bcf86cd799439011"
+            - think: 2
+        count: 3
+
+  # Flujo de lectura pesada
+  - name: "Read heavy - Product browsing"
+    weight: 15
+    flow:
+      # Navegación intensiva de productos
+      - loop:
+          - get:
+              url: "/api/products?limit=20&page={{ $loopCount }}"
+            - get:
+              url: "/api/products/{{ $randomString([\"507f1f77bcf86cd799439011\", \"507f1f77bcf86cd799439012\", \"507f1f77bcf86cd799439013\"]) }}"
+            - think: 0.5
+        count: 10

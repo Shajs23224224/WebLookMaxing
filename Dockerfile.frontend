@@ -1,0 +1,71 @@
+# Multi-stage build for Flutter web
+FROM debian:bullseye-slim AS build
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    wget \
+    unzip \
+    xz-utils \
+    libglu1-mesa \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Flutter
+ARG FLUTTER_VERSION=3.16.0
+ARG FLUTTER_CHANNEL=stable
+
+RUN wget https://storage.googleapis.com/flutter_infra_release/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz \
+    && tar -xf flutter_linux_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz \
+    && mv flutter /opt/flutter \
+    && rm flutter_linux_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz
+
+# Add Flutter to PATH
+ENV PATH="/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+# Enable Flutter web
+RUN flutter config --enable-web
+
+# Set working directory
+WORKDIR /app
+
+# Copy pubspec files first for better caching
+COPY frontend/pubspec.yaml frontend/pubspec.lock ./
+
+# Get Flutter dependencies
+RUN flutter pub get
+
+# Copy the rest of the application code
+COPY frontend/ .
+
+# Build the Flutter web app
+RUN flutter build web --release --web-renderer html
+
+# Production stage with Nginx
+FROM nginx:alpine
+
+# Copy built Flutter web app to Nginx html directory
+COPY --from=build /app/build/web /usr/share/nginx/html
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Create nginx directories
+RUN mkdir -p /var/cache/nginx/client_temp \
+             /var/cache/nginx/proxy_temp \
+             /var/cache/nginx/fastcgi_temp \
+             /var/cache/nginx/uwsgi_temp \
+             /var/cache/nginx/scgi_temp
+
+# Create log directory
+RUN mkdir -p /var/log/nginx
+
+# Expose port 80
+EXPOSE 80
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/health || exit 1
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

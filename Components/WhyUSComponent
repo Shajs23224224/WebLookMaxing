@@ -1,0 +1,1164 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'why_us_component_model.dart';
+export 'why_us_component_model.dart';
+
+class WhyUsComponentWidget extends StatefulWidget {
+  const WhyUsComponentWidget({super.key});
+
+  @override
+  State<WhyUsComponentWidget> createState() => _WhyUsComponentWidgetState();
+}
+
+class _WhyUsComponentWidgetState extends State<WhyUsComponentWidget> {
+  late WhyUsComponentModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => WhyUsComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Container(
+          width: MediaQuery.sizeOf(context).width * 0.5,
+          decoration: BoxDecoration(),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Text(
+                  'Unlike any agency\nyou’ve worked with before',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).displayMedium.override(
+                        font: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w300,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .displayMedium
+                              .fontStyle,
+                        ),
+                        fontSize: () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 24.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 32.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 44.0;
+                          } else {
+                            return 44.0;
+                          }
+                        }(),
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w300,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .displayMedium
+                            .fontStyle,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Text(
+                  'Designed to the last pixel and engineered with unforgiving precision, ThatMobileDevAgency combines UI elegance with world-class performance.',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                        font: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w300,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontSize: () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 14.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 18.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 24.0;
+                          } else {
+                            return 24.0;
+                          }
+                        }(),
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w300,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .fontStyle,
+                      ),
+                ),
+              ),
+            ].divide(SizedBox(height: 36)),
+          ),
+        ),
+        if (responsiveVisibility(
+          context: context,
+          phone: false,
+          tablet: false,
+        ))
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+            decoration: BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          border: Border.all(
+                            color: Color(0x5AB0B0C0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 2,
+                                      sigmaY: 5,
+                                    ),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45,
+                                      decoration: BoxDecoration(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.4,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Built for your keyboard',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    'Fly through your tasks with rapid-fire keyboard shortcuts for everything. Literally everything.',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 14,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ]
+                                    .divide(SizedBox(height: 24))
+                                    .addToEnd(SizedBox(height: 45)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          border: Border.all(
+                            color: Color(0x5AB0B0C0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Stack(
+                              alignment: AlignmentDirectional(0, 1),
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 2,
+                                      sigmaY: 5,
+                                    ),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45,
+                                      decoration: BoxDecoration(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.19,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Breathtakingly fast',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    'Built for speed with 50ms interactions and real-time sync.',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ]
+                                    .divide(SizedBox(height: 24))
+                                    .addToEnd(SizedBox(height: 45)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ].divide(SizedBox(width: 24)),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          border: Border.all(
+                            color: Color(0x5AB0B0C0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Stack(
+                              alignment: AlignmentDirectional(0, 1),
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 2,
+                                      sigmaY: 5,
+                                    ),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45,
+                                      decoration: BoxDecoration(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.19,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Designed for modern software teams',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    'Comes with built-in workflows that create focus and routine',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ]
+                                    .divide(SizedBox(height: 24))
+                                    .addToEnd(SizedBox(height: 45)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          border: Border.all(
+                            color: Color(0x5AB0B0C0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.4,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Meet your command line',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  Text(
+                                    'Complete any action in seconds with the global command menu.',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 14,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ]
+                                    .divide(SizedBox(height: 24))
+                                    .addToStart(SizedBox(height: 45)),
+                              ),
+                            ),
+                            Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 2,
+                                      sigmaY: 5,
+                                    ),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45,
+                                      decoration: BoxDecoration(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ].divide(SizedBox(width: 24)),
+                ),
+              ].divide(SizedBox(height: 12)),
+            ),
+          ),
+        if (responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        ))
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+            decoration: BoxDecoration(),
+            child: Container(
+              width: double.infinity,
+              height: 350,
+              child: CarouselSlider(
+                items: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(valueOrDefault<double>(
+                        () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 12.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 24.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 32.0;
+                          } else {
+                            return 32.0;
+                          }
+                        }(),
+                        0.0,
+                      )),
+                      border: Border.all(
+                        color: Color(0x5AB0B0C0),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(valueOrDefault<double>(
+                                () {
+                                  if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointSmall) {
+                                    return 12.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointMedium) {
+                                    return 24.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointLarge) {
+                                    return 32.0;
+                                  } else {
+                                    return 32.0;
+                                  }
+                                }(),
+                                0.0,
+                              )),
+                              child: Image.network(
+                                'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                width: double.infinity,
+                                height: 130,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 2,
+                                  sigmaY: 5,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 25,
+                                  decoration: BoxDecoration(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 0.4,
+                          decoration: BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Built for your keyboard',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .fontStyle,
+                                      ),
+                                      fontSize: 18,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Text(
+                                'Fly through your tasks with rapid-fire keyboard shortcuts for everything. Literally everything.',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 14,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ].divide(SizedBox(height: 24)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(valueOrDefault<double>(
+                        () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 12.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 24.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 32.0;
+                          } else {
+                            return 32.0;
+                          }
+                        }(),
+                        0.0,
+                      )),
+                      border: Border.all(
+                        color: Color(0x5AB0B0C0),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional(0, 1),
+                          children: [
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(valueOrDefault<double>(
+                                () {
+                                  if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointSmall) {
+                                    return 12.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointMedium) {
+                                    return 24.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointLarge) {
+                                    return 32.0;
+                                  } else {
+                                    return 32.0;
+                                  }
+                                }(),
+                                0.0,
+                              )),
+                              child: Image.network(
+                                'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                width: double.infinity,
+                                height: 130,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 2,
+                                  sigmaY: 5,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 25,
+                                  decoration: BoxDecoration(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Breathtakingly fast',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                        fontSize: 18,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .fontStyle,
+                                      ),
+                                ),
+                                Text(
+                                  'Built for speed with 50ms interactions and real-time sync.',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 14,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 24)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(valueOrDefault<double>(
+                        () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 12.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 24.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 32.0;
+                          } else {
+                            return 32.0;
+                          }
+                        }(),
+                        0.0,
+                      )),
+                      border: Border.all(
+                        color: Color(0x5AB0B0C0),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional(0, 1),
+                          children: [
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(valueOrDefault<double>(
+                                () {
+                                  if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointSmall) {
+                                    return 12.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointMedium) {
+                                    return 24.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointLarge) {
+                                    return 32.0;
+                                  } else {
+                                    return 32.0;
+                                  }
+                                }(),
+                                0.0,
+                              )),
+                              child: Image.network(
+                                'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                width: double.infinity,
+                                height: 130,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 2,
+                                  sigmaY: 5,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 25,
+                                  decoration: BoxDecoration(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Designed for modern software teams',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                        fontSize: 18,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .fontStyle,
+                                      ),
+                                ),
+                                Text(
+                                  'Comes with built-in workflows that create focus and routine',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 14,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 24)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(valueOrDefault<double>(
+                        () {
+                          if (MediaQuery.sizeOf(context).width <
+                              kBreakpointSmall) {
+                            return 12.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointMedium) {
+                            return 24.0;
+                          } else if (MediaQuery.sizeOf(context).width <
+                              kBreakpointLarge) {
+                            return 32.0;
+                          } else {
+                            return 32.0;
+                          }
+                        }(),
+                        0.0,
+                      )),
+                      border: Border.all(
+                        color: Color(0x5AB0B0C0),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional(0, 1),
+                          children: [
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(valueOrDefault<double>(
+                                () {
+                                  if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointSmall) {
+                                    return 12.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointMedium) {
+                                    return 24.0;
+                                  } else if (MediaQuery.sizeOf(context).width <
+                                      kBreakpointLarge) {
+                                    return 32.0;
+                                  } else {
+                                    return 32.0;
+                                  }
+                                }(),
+                                0.0,
+                              )),
+                              child: Image.network(
+                                'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                                width: double.infinity,
+                                height: 130,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 2,
+                                  sigmaY: 5,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 25,
+                                  decoration: BoxDecoration(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Meet your command line',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmall
+                                                  .fontStyle,
+                                        ),
+                                        fontSize: 18,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .fontStyle,
+                                      ),
+                                ),
+                                Text(
+                                  'Complete any actions in seconds with the global menu',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 14,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 24)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                carouselController: _model.carouselController ??=
+                    CarouselSliderController(),
+                options: CarouselOptions(
+                  initialPage: 1,
+                  viewportFraction: 0.5,
+                  disableCenter: true,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.25,
+                  enableInfiniteScroll: true,
+                  scrollDirection: Axis.horizontal,
+                  autoPlay: false,
+                  onPageChanged: (index, _) =>
+                      _model.carouselCurrentIndex = index,
+                ),
+              ),
+            ),
+          ),
+      ].divide(SizedBox(height: 36)),
+    );
+  }
+}

@@ -1,0 +1,283 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+
+import 'hero_banner_model.dart';
+export 'hero_banner_model.dart';
+
+class HeroBannerWidget extends StatefulWidget {
+  const HeroBannerWidget({super.key});
+
+  @override
+  State<HeroBannerWidget> createState() => _HeroBannerWidgetState();
+}
+
+class _HeroBannerWidgetState extends State<HeroBannerWidget> {
+  late HeroBannerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => HeroBannerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.5,
+                decoration: BoxDecoration(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: GradientText(
+                        'The New Age of Mobile App Development',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context)
+                            .displayLarge
+                            .override(
+                              font: GoogleFonts.raleway(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displayLarge
+                                    .fontStyle,
+                              ),
+                              fontSize: () {
+                                if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointSmall) {
+                                  return 28.0;
+                                } else if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointMedium) {
+                                  return 54.0;
+                                } else if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointLarge) {
+                                  return 75.0;
+                                } else {
+                                  return 75.0;
+                                }
+                              }(),
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .displayLarge
+                                  .fontStyle,
+                            ),
+                        colors: [
+                          FlutterFlowTheme.of(context).primaryText,
+                          FlutterFlowTheme.of(context).secondaryText
+                        ],
+                        gradientDirection: GradientDirection.ltr,
+                        gradientType: GradientType.linear,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Text(
+                        'We are Top Rated App Development company who create amazing apps for world class companies 10X faster.',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).titleLarge.override(
+                              font: GoogleFonts.raleway(
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: () {
+                                if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointSmall) {
+                                  return 16.0;
+                                } else if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointMedium) {
+                                  return 20.0;
+                                } else if (MediaQuery.sizeOf(context).width <
+                                    kBreakpointLarge) {
+                                  return 20.0;
+                                } else {
+                                  return 20.0;
+                                }
+                              }(),
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .fontStyle,
+                            ),
+                      ),
+                    ),
+                  ].divide(SizedBox(height: 45)),
+                ),
+              ),
+            ),
+            Flexible(
+              child: Flex(
+                direction: () {
+                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                    return false;
+                  } else if (MediaQuery.sizeOf(context).width <
+                      kBreakpointMedium) {
+                    return true;
+                  } else if (MediaQuery.sizeOf(context).width <
+                      kBreakpointLarge) {
+                    return true;
+                  } else {
+                    return true;
+                  }
+                }()
+                    ? Axis.horizontal
+                    : Axis.vertical,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          FlutterFlowTheme.of(context).accent1,
+                          FlutterFlowTheme.of(context).primary
+                        ],
+                        stops: [0, 1],
+                        begin: AlignmentDirectional(-1, -1),
+                        end: AlignmentDirectional(1, 1),
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(18),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Get In Touch',
+                            style:
+                                FlutterFlowTheme.of(context).bodyLarge.override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                          ),
+                          Icon(
+                            Icons.chevron_right_rounded,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 24,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0x40A0A0B0),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(18),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Browse our services',
+                            style:
+                                FlutterFlowTheme.of(context).bodyLarge.override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                          ),
+                          Icon(
+                            Icons.chevron_right_rounded,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 24,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ].divide(() {
+                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                    return false;
+                  } else if (MediaQuery.sizeOf(context).width <
+                      kBreakpointMedium) {
+                    return true;
+                  } else if (MediaQuery.sizeOf(context).width <
+                      kBreakpointLarge) {
+                    return true;
+                  } else {
+                    return true;
+                  }
+                }()
+                    ? SizedBox(width: 24)
+                    : SizedBox(height: 24)),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 75, 0, 75),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(24),
+                child: Image.network(
+                  'https://cdn.prod.website-files.com/67010f4a68459a5989b19f0a/67010f4a68459a5989b19f56_hero.webp',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ].divide(SizedBox(height: 36)),
+        ),
+      ),
+    );
+  }
+}
