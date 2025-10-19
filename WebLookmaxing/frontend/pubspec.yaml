@@ -1,0 +1,75 @@
+name: lookmaxing
+description: A Flutter Web e-commerce application for lookmaxing packages
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  # FlutterFlow dependencies
+  flutterflow_ui: ^0.1.0
+
+  # State management
+  provider: ^6.1.1
+  flutter_riverpod: ^2.4.9
+
+  # HTTP client
+  dio: ^5.3.2
+  http: ^1.1.0
+
+  # Local storage
+  shared_preferences: ^2.2.2
+
+  # Image handling
+  cached_network_image: ^3.3.0
+  flutter_svg: ^2.0.9
+
+  # Animations
+  flutter_animate: ^4.3.0
+
+  # Navigation
+  go_router: ^12.1.3
+
+  # Utilities
+  intl: ^0.19.0
+  url_launcher: ^6.2.2
+
+  # Payment integrations
+  webview_flutter: ^4.4.2
+
+  # PWA support
+  flutter_web_plugins:
+    sdk: flutter
+
+  # Firebase (opcional para analytics)
+  firebase_core: ^2.24.2
+  firebase_analytics: ^10.7.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/jsons/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Regular.ttf
+        - asset: fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Inter-Bold.ttf
+          weight: 700

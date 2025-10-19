@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Lookmaxing - Transforma tu apariencia con nuestros paquetes profesionales de cuidado personal y estilo.">
+  <meta name="keywords" content="lookmaxing, cuidado personal, estilo, belleza, transformación, paquetes">
+  <meta name="author" content="Lookmaxing">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lookmaxing.com/">
+  <meta property="og:title" content="Lookmaxing - Transforma tu apariencia">
+  <meta property="og:description" content="Paquetes profesionales de cuidado personal y estilo para transformar tu apariencia.">
+  <meta property="og:image" content="https://lookmaxing.com/assets/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://lookmaxing.com/">
+  <meta property="twitter:title" content="Lookmaxing - Transforma tu apariencia">
+  <meta property="twitter:description" content="Paquetes profesionales de cuidado personal y estilo para transformar tu apariencia.">
+  <meta property="twitter:image" content="https://lookmaxing.com/assets/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- PWA Theme Color -->
+  <meta name="theme-color" content="#1a73e8">
+  <meta name="msapplication-TileColor" content="#1a73e8">
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://lookmaxing.com/">
+
+  <title>Lookmaxing - Transforma tu apariencia con estilo</title>
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Security headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.lookmaxing.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+  <style>
+    /* Basic styles for the loading screen */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    .loading-container {
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Error state */
+    .error {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .error h2 {
+      color: #ff6b6b;
+      margin-bottom: 1rem;
+    }
+
+    .retry-btn {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .retry-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+</head>
+
+<body>
+  <div class="loading-container">
+    <div class="logo">L</div>
+    <h1>Lookmaxing</h1>
+    <p>Cargando la experiencia de transformación personal...</p>
+    <div class="spinner"></div>
+    <div class="status" id="status">Iniciando aplicación</div>
+  </div>
+
+  <!-- Error container (hidden by default) -->
+  <div class="error" id="error-container" style="display: none;">
+    <h2>Error de carga</h2>
+    <p>No se pudo cargar la aplicación. Verifica tu conexión a internet e intenta nuevamente.</p>
+    <button class="retry-btn" onclick="window.location.reload()">Reintentar</button>
+  </div>
+
+  <script>
+    // Simple loading script
+    document.addEventListener('DOMContentLoaded', function() {
+      const status = document.getElementById('status');
+      const errorContainer = document.getElementById('error-container');
+
+      // Simulate loading progress
+      const messages = [
+        'Cargando recursos...',
+        'Conectando con el servidor...',
+        'Preparando la experiencia...',
+        '¡Listo!'
+      ];
+
+      let currentMessage = 0;
+      const interval = setInterval(() => {
+        if (currentMessage < messages.length) {
+          status.textContent = messages[currentMessage];
+          currentMessage++;
+        } else {
+          clearInterval(interval);
+          // In a real app, this would check if Flutter is loaded
+          setTimeout(() => {
+            // For demo purposes, show error after timeout
+            // In production, this would redirect to Flutter app
+            errorContainer.style.display = 'block';
+          }, 5000);
+        }
+      }, 1500);
+
+      // Check if running in development
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log('Running in development mode');
+      }
+    });
+  </script>
+</body>
+</html>
